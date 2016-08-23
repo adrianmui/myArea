@@ -18,6 +18,13 @@
   </head>
 
   <body>
+    <%= render "shared/navbar" %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %> 

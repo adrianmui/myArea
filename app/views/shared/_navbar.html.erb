@@ -1,0 +1,43 @@
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="main-nav">
+    <div class="col-xs-3">
+      <div class="navbar-header">
+         <aclass="navbar-left brand-img">
+         <h1> MyApp </h1> </a>
+      </div>
+    </div>
+    <div class="col-xs-9">
+
+      <ul class="nav nav-pills">
+        <li>
+          <span class="label label-info">
+            NAV_BAR
+          </span>
+        </li>
+        <li> 
+          <%= link_to "root_path", root_path %> 
+        </li>
+        <li> 
+          <%= link_to "User", current_user %> 
+        </li>
+        <li>
+          <span class="label label-success">
+            User
+          </span>
+        </li>
+    
+        <li> 
+          <% if signed_in_user? %>
+            <%= link_to "logout", logout_path, method: :delete %>
+          <% else %>
+            <%= link_to "login", login_path %> 
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to "Sign Up", new_user_path %>
+        </li>
+      </ul>
+    </div>
+</nav>

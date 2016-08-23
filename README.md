@@ -8,29 +8,34 @@ POIs, Pokestops(PokemonGO), etc**
 
 Models 
 
-Users
+#Users
+
   -username
   -email
   -password
   
-Profile
+#Profile
+
   - first_name
   - last_name
   - address
   - city
   - state
-
   -has_one location
-Posts
+
+#Posts
+
   - belongs to user
   - Description
   - likes
-Comments
+
+#Comments
   - belongs to post
   - belongs to author(user)
   - likes
-Location 
-  -
+
+#Location 
+  - ???
 
 APIs
 

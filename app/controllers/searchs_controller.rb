@@ -5,7 +5,8 @@ class SearchsController < ApplicationController
     @factual = Factual.new(Rails.application.secrets.OAUTH_KEY, Rails.application.secrets.OAUTH_SECRET)
      
     @user = current_user
-    if dist = params[:query_dist].to_i
+    if params[:query_dist].to_i
+      dist = params[:query_dist].to_i > 0 ? params[:query_dist] : 1
       name = params[:query_name] if params[:query_name]
       if @user.profile
         address = @user.profile.address

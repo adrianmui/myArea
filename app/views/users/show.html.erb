@@ -7,5 +7,9 @@
 <% else %>
   
   Display Profile
+
+  <div class="row">
+    <%= render partial: "shared/profile", locals: { profile: @user.profile} %>
+  </div>
   
 <% end %>

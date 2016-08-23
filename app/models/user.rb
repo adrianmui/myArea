@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_one :profile
+  has_many :locations, as: :locationable, class_name: "Location"
 
   validates :username, length: { :minimum => 1}, uniqueness: true
   validates :email, uniqueness: true

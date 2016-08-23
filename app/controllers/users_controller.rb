@@ -1,12 +1,24 @@
+require 'factual'
+
 class UsersController < ApplicationController
   include ApplicationHelper
 
+  #skip_before_action :verify_authenticity_token
+
   def show
     @user = User.find(params[:id])
-    address = @user.profile.address
-    longitude = @user.profile.location.longitude
-    latitude = @user.profile.location.latitude
-    @loc = static_map_for(latitude, longitude, address)
+    if @user.profile
+      address = @user.profile.address
+      if @user.profile.location
+        longitude = @user.profile.location.longitude
+        latitude = @user.profile.location.latitude
+
+        
+        @loc = static_map_for(latitude, longitude, address)
+        @loc = @loc + add_markers_map(@user) + add_key
+
+      end
+    end
   end
 
   def new
@@ -36,6 +48,18 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def add_markers_map(user)
+      str = ""
+      user.locations.each do |loc|
+        str += "&markers=color:green\%7Clabel:C\%7C#{loc.latitude},#{loc.longitude}"
+      end
+      str
+    end
+
+    def add_key
+      "&key=AIzaSyD1_SmqYgQyPXcNPlTaEP-dt5kd59_YNU4"
+    end
 
     def whitelisted_user_params
       params.

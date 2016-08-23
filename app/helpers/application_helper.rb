@@ -3,7 +3,7 @@ module ApplicationHelper
     params = {
       :center => [latitude, longitude].join(","),
       :zoom => 15,
-      :size => "500x500",
+      :size => "1500x1500",
       :markers => [latitude, longitude].join(","),
       :sensor => true
       }.merge(options)
@@ -12,4 +12,6 @@ module ApplicationHelper
     
     "http://maps.googleapis.com/maps/api/staticmap?#{query_string}"
     end
+
+
 end

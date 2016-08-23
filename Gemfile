@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
 #nice gems
+gem 'factual-api'
+
+gem 'figaro'
 
 gem 'nifty-generators'
 gem 'geocoder'
-
 
 gem 'geokit-rails'
 gem 'hirb'

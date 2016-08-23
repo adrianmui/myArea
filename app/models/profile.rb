@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  has_one :location
+  has_one :location, as: :locationable, class_name: "Location"
 
   validates :first_name, length: { :minimum => 1}
   validates :last_name, length: { :minimum => 1}

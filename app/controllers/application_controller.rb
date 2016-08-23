@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+
+  @@factual = Factual.new(Rails.application.secrets.OAUTH_KEY, Rails.application.secrets.OAUTH_SECRET)
   private
     # switched to cookies-based from session-based
     # regenerate the token as well

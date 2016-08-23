@@ -23,7 +23,12 @@
             <%= link_to "User", current_user %> 
           </li>
           <li> 
-            <%= link_to "Your Location", location_path(current_user.profile.location) %> 
+            <% if current_user.profile %>
+              <% if current_user.profile.location %>
+                <%= link_to "Your Location", location_path(current_user.profile.location) %> 
+                <%= link_to "Stuff Near You", locations_path %> 
+              <% end %>    
+            <% end %>
           </li>
         <% end %>
           <li>

@@ -12,7 +12,15 @@ Users
   -username
   -email
   -password
-  -location (findme button)
+  
+Profile
+  - first_name
+  - last_name
+  - address
+  - city
+  - state
+
+  -has_one location
 Posts
   - belongs to user
   - Description
@@ -21,6 +29,8 @@ Comments
   - belongs to post
   - belongs to author(user)
   - likes
+Location 
+  -
 
 APIs
 
@@ -29,3 +39,9 @@ google maps (static?)
 
 sfo apis 
   -will include api info for map to contain special markers.
+
+Niantic PKGO api
+  -will definitely include pokestop markers (duh)
+
+GEMs
+  geokitrails

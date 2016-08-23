@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
 
   def show
     @user = User.find(params[:id])
-    raise
-    
+    address = @user.profile.address
+    longitude = @user.profile.location.longitude
+    latitude = @user.profile.location.latitude
+    @loc = static_map_for(latitude, longitude, address)
   end
 
   def new
@@ -43,16 +46,5 @@ class UsersController < ApplicationController
                 :password_confirmation)
     end
 
-    def static_map_for(location, options = {})
-    params = {
-      :center => [location.lat, location.lng].join(","),
-      :zoom => 15,
-      :size => "300x300",
-      :markers => [location.lat, location.lng].join(","),
-      :sensor => true
-      }.merge(options)
-
-    query_string =  params.map{|k,v| "#{k}=#{v}"}.join("&")
-    image_tag "http://maps.googleapis.com/maps/api/staticmap?#{query_string}", :alt => location.name
-    end
+    
 end

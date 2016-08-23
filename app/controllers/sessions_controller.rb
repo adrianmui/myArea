@@ -18,5 +18,6 @@ class SessionsController < ApplicationController
     # another simple helper
     sign_out
     flash[:success] = "You've successfully signed out"
+    redirect_to root_path
   end
 end

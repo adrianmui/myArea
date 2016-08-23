@@ -18,10 +18,18 @@
         <li> 
           <%= link_to "root_path", root_path %> 
         </li>
-        <li> 
-          <%= link_to "User", current_user %> 
-        </li>
-        <li>
+        <% if signed_in_user? %>
+          <li> 
+            <%= link_to "User", current_user %> 
+          </li>
+          <li> 
+            <%= link_to "Your Location", location_path(current_user.profile.location) %> 
+          </li>
+        <% end %>
+          <li>
+        
+
+
           <span class="label label-success">
             User
           </span>
@@ -29,7 +37,7 @@
     
         <li> 
           <% if signed_in_user? %>
-            <%= link_to "logout", logout_path, method: :delete %>
+            <%= link_to "logout", session_path(current_user), method: :delete %>
           <% else %>
             <%= link_to "login", login_path %> 
           <% end %>

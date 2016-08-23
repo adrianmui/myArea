@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(whitelisted_location_params)
+    @location.profile_id = current_user.profile.id
     if @location.save
       flash[:success] = "Location has been generated"
       redirect_to current_user
@@ -17,7 +18,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-
+    @location = Location.find(params[:id])
   end
 
 

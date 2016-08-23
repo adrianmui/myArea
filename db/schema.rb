@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823174216) do
+ActiveRecord::Schema.define(version: 20160823182539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20160823174216) do
     t.float    "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "profile_id"
+    t.index ["profile_id"], name: "index_locations_on_profile_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -46,5 +48,6 @@ ActiveRecord::Schema.define(version: 20160823174216) do
     t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
   end
 
+  add_foreign_key "locations", "profiles"
   add_foreign_key "profiles", "users"
 end

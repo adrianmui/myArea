@@ -2,13 +2,14 @@ class LocationsController < ApplicationController
 
 
   def index
+    @factual = Factual.new(Rails.application.secrets.OAUTH_KEY, Rails.application.secrets.OAUTH_SECRET)
     @user = current_user
     if @user.profile
       address = @user.profile.address
       if @user.profile.location
         longitude = @user.profile.location.longitude
         latitude = @user.profile.location.latitude
-        @places_near_me = @@factual.table("places-us").geo("$circle" => {"$center" => [latitude, longitude], "$meters" => 25}).rows
+        @places_near_me = @factual.table("places-us").geo("$circle" => {"$center" => [latitude, longitude], "$meters" => 500}).rows
       end
     end
   end
@@ -21,7 +22,7 @@ class LocationsController < ApplicationController
     @locationable = get_locationable_resource
     
 
-    if @locationable.class == Profile
+    if @locationable.nil?
       @location = current_user.profile.location = Location.new(
         whitelisted_location_params)
     elsif @locationable.class == User

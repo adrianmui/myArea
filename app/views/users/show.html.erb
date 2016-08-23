@@ -1,15 +1,31 @@
-<% if current_user.profile.nil? %>
+<div class="jumbotron" id="big-body">
+  <div class="container">
+    <div class="row" id="profile-row">
+      <% if current_user.profile.nil? %>
 
-  <ul>
-    <button> <%= link_to "Create Profile", new_profile_path %> </button>
-  </ul>
+        <ul>
+          <button> <%= link_to "Create Profile", new_profile_path %> </button>
+        </ul>
 
-<% else %>
-  
-  Display Profile
+      <% else %>
+        
+        Display Profile
 
-  <div class="row">
-    <%= render partial: "shared/profile", locals: { profile: @user.profile} %>
+        <div class="row">
+          <%= render partial: "shared/profile", locals: { profile: @user.profile} %>
+        </div>
+        
+      <% end %>
+    </div>
+
+    <div class="row" id="location-row">
+
+      <button> <%= link_to "Find Your Location", new_location_path %> </button>
+    </div>
+
+
+
+
   </div>
-  
-<% end %>
+</div>
+

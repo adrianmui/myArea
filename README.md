@@ -8,13 +8,13 @@ POIs, Pokestops(PokemonGO), etc**
 
 Models 
 
-#Users
+#Users OK
 
   -username
   -email
   -password
   
-#Profile
+#Profile OK
 
   - first_name
   - last_name
@@ -23,23 +23,23 @@ Models
   - state
   -has_one location
 
-#Posts
+#Posts ..
 
   - belongs to user
   - Description
   - likes
 
-#Comments
+#Comments ..
   - belongs to post
   - belongs to author(user)
   - likes
 
-#Location 
+#Location IN\_PROGRESS
   - ???
 
 APIs
 
-google maps (static?)
+google maps (static?) IN\_PROGRESS
   -google map static helper
 
 sfo apis 
@@ -48,5 +48,5 @@ sfo apis
 Niantic PKGO api
   -will definitely include pokestop markers (duh)
 
-GEMs
-  geokitrails
+  GEM
+   ty geocoder for converting address to LONG/LAT

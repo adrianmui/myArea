@@ -1,0 +1,33 @@
+<%= simple_form_for @location do |f| %>
+
+  <div class="col-xs-6" id="panels" style="border: solid; border-radius: 1px;">
+    <div class ="row header-bar">  
+      <div class="col-xs-6">
+        <h4>Location</h4>
+      </div>
+    </div>
+
+    <%= f.label :address %>
+    <br>
+    <%= f.input_field :address, value: current_user.profile.full_address %>
+    <br>
+    <%= f.label :longitude %>
+    <br>
+    <%= f.input_field :longitude%>
+    <br>
+    <%= f.label :latitude %>
+    <br>
+    <%= f.input_field :latitude%>
+
+    
+
+      <div class ="row footer-bar">  
+        <ul class="list-unstyled" id="footers">
+          <%= f.submit "Create the location" %>
+          </ul>
+          
+      </div>
+    </div>
+  </div>
+
+<% end %>

@@ -8,4 +8,8 @@ class Profile < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true
   validates :zip, numericality: true
+
+  def full_address
+    "#{address}, #{zip}, #{city}, #{state}"
+  end
 end

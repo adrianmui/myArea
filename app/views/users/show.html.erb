@@ -1,0 +1,11 @@
+<% if current_user.profile.nil? %>
+
+  <ul>
+    <button> <%= link_to "Create Profile", new_profile_path %> </button>
+  </ul>
+
+<% else %>
+  
+  Display Profile
+  
+<% end %>

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_one :profile
 
   validates :username, length: { :minimum => 1}, uniqueness: true
   validates :email, uniqueness: true
@@ -19,4 +20,9 @@ class User < ApplicationRecord
     generate_token
     save!
   end
+
+  # def has_profile?
+  #   !!self.profile
+  # end
+  # helper_method :has_profile?
 end

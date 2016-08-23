@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'geocoder'
 gem 'geokit-rails'
 gem 'hirb'
+gem 'simple_form', github: 'kesha-antonov/simple_form', branch: 'rails-5-0'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

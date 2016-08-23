@@ -40,4 +40,10 @@ class ApplicationController < ActionController::Base
       !!current_user
     end
     helper_method :signed_in_user?
+
+    # def signed_in_user_has_profile?
+    #   !@current_user.profile.nil?
+    # end
+
+    # helper_method :signed_in_user_has_profile?
 end

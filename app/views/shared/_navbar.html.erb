@@ -22,14 +22,21 @@
           <li> 
             <%= link_to "User", current_user %> 
           </li>
-          <li> 
+          
             <% if current_user.profile %>
               <% if current_user.profile.location %>
+              <li> 
                 <%= link_to "Your Location", location_path(current_user.profile.location) %> 
-                <%= link_to "Stuff Near You", locations_path %> 
+              </li>
+              <li> 
+                <%= link_to "Stuff Near You", locations_path %>
+              </li>
+              <li> 
+                <%= link_to "Search(BETA)", searchs_path %>  
+              </li>
               <% end %>    
             <% end %>
-          </li>
+          
         <% end %>
           <li>
         

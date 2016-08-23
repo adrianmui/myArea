@@ -1,0 +1,9 @@
+<%= form_tag(new_search_path, :method => "get", id: "search-form") do %>
+    <p>
+      <%= text_field_tag :query_dist, nil, placeholder: "within distance?" %>
+      <br>
+      <%= text_field_tag :query_name, nil, placeholder: "search for name?" %>
+      <%= submit_tag "search" %>
+    </p>
+
+  <% end %>

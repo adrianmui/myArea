@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :profiles
 
   resources :locations
+
+  resources :searchs, only: [:index, :new]
 end

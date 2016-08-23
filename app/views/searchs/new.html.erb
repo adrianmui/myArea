@@ -1,0 +1,23 @@
+<ul>
+  <% @places_near_me[1..-1].each do |places| %>
+    <h2>
+       <%= places["name"] %>
+    </h2>
+      <li>
+        <%= places["address"] %>
+      </li>
+    
+      <% if places["category_labels"] %>
+      <li>
+        <%= places["category_labels"].each do |category| %>
+          <%= " #{category} " %>
+        <% end %>
+      </li>
+      <% end %>
+    <li>
+      <%= places["latitude"] %>, <%= places["longitude"] %>
+    </li>
+    <br>
+    <button> <%= link_to "Add To My Locations", locations_path(:user_id => current_user.id, :location => { :address => places["address"] } ), method: :create %> </button>
+  <% end %>
+</ul>

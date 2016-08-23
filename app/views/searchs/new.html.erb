@@ -1,5 +1,6 @@
 <ul>
-  <% @places_near_me[1..-1].each do |places| %>
+<% if !@places_near_me.empty? %>
+  <% @places_near_me.each do |places| %>
     <h2>
        <%= places["name"] %>
     </h2>
@@ -20,4 +21,8 @@
     <br>
     <button> <%= link_to "Add To My Locations", locations_path(:user_id => current_user.id, :location => { :address => places["address"] } ), method: :create %> </button>
   <% end %>
+<% else %>
+  YOU LIVE IN A DESERT JUST ROT AND IED ALREADY <h1>-RESTINPEACEHARAMBE- </h1>
+<% end %>
+
 </ul>

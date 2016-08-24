@@ -2,6 +2,8 @@
 
 # MyArea by Adrian Mui
 
+https://safe-everglades-60087.herokuapp.com/
+
 **myArea is an app that pulls up a static location from where you are and searches for Points Of Interests near you. The app uses the Factual-API and Factual-API gem to search for specific results. etc**
 
 ### First create your User, Profile, and Set Location.

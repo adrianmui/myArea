@@ -9,7 +9,7 @@
 
       <% else %>
         
-        Display Profile
+        <code> Display Profile </code>
 
         <div class="row">
           <%= render partial: "shared/profile", locals: { profile: @user.profile} %>
@@ -26,10 +26,8 @@
   </div>
 </div>
 
-<div> 
-
-  <img src=<%= @loc %> alt="gmap">
-
+<div id="image-holder"> 
+  <img class="displayed" src=<%= @loc %> alt="gmap">
 </div>
 
 

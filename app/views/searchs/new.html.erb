@@ -5,9 +5,14 @@
   
   <% @places_near_me.each do |places| %>
     <br>
+    
+    <div id="image-holder">
       <img src=<%= (static_map_for(places["latitude"], places["longitude"], places["address"]) + add_key) %> alt="gmap">
-      <br>
-      <button> <%= link_to "Add To My Locations", locations_path(:user_id => current_user.id, :location => { :address => places["address"] } ), method: :create %> </button>
+    </div>
+
+    <br>
+
+    <button type="button" class="btn btn-warning"> <%= link_to "Add To My Locations", locations_path(:user_id => current_user.id, :location => { :address => places["address"] } ), method: :create %> </button>
 
     </br>
 

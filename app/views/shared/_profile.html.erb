@@ -1,20 +1,41 @@
 <div>
   <ul>
   <h2>
-    :: <%= profile.first_name %>&<%= profile.last_name %>s Kickass Profile ::
+    :: <kbd><%= profile.first_name %> <%= profile.last_name %>s</kbd> Kickass Profile ::
   </h2>
-    <li>
-      Address: <%= profile.address %>
-    </li>
-    <li>
-      Zip: <%= profile.zip %>
-    </li>
-    <li>
-      City: <%= profile.city %>
-    </li>
-    <li>
-      State: <%= profile.state %>
-    </li>
+
+    <table class="table table-striped table-hover table-bordered">
+      <tr>
+        <th>
+          address
+        </th>
+        <th>
+          zip
+        </th>
+        <th>
+          city
+        </th>
+        <th>
+          state
+        </th>
+      </tr>
+
+      <tr>
+
+        <th>
+          <%= profile.address %>
+        </th>
+        <th>
+          <%= profile.zip %>
+        </th>
+        <th>
+          <%= profile.city %>
+        </th>
+        <th>
+          <%= profile.state %>
+        </th>
+      </tr>
+    </table>
   </ul>
 </div>
 

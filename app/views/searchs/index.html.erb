@@ -1,11 +1,23 @@
-<%= form_tag(new_search_path, :method => "get", id: "search-form") do %>
+<br>
+
+
+
+<ul>
+  <ul class="nav">
+    This is the SEARCH_FORM that works with the <kbd>Factual-API gem</kbd> to find your favorite places near you <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 
+  </ul>
+
+  <br>
+
+  <%= form_tag(new_search_path, :method => "get", id: "search-form") do %>
     <p>
-      <%= text_field_tag :query_dist, nil, placeholder: "within distance?" %>
+      <%= text_field_tag :query_dist, nil, placeholder: "within distance? ie: 200" %>
       <br>
-      <%= text_field_tag :query_name, nil, placeholder: "search for name?" %>
+      <%= text_field_tag :query_name, nil, placeholder: "search for name? ie: burger" %>
       <%= submit_tag "search" %>
     </p>
 
   <% end %>
+</ul>
 
   

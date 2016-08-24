@@ -2,51 +2,20 @@
 
 # MyArea by Adrian Mui
 
-**myArea is an app that pulls up a static location for where you are and allows you to post PostComments
-where other Users around the area can upvote or downvote your PostComment. The app can expand to include
-POIs, Pokestops(PokemonGO), etc**
+**myArea is an app that pulls up a static location from where you are and searches for Points Of Interests near you. The app uses the Factual-API and Factual-API gem to search for specific results. etc**
 
-Models 
+### First create your User, Profile, and Set Location.
 
-#Users OK
+![alt](http://i.imgur.com/o9wJYZm.png)
 
-  -username
-  -email
-  -password
-  
-#Profile OK
+### Then you can Bookmark places Near You!
 
-  - first_name
-  - last_name
-  - address
-  - city
-  - state
-  -has_one location
+![alt](http://i.imgur.com/49aYzEJ.jpg)
 
-#Posts ..
+### Or you can search specific queries..
 
-  - belongs to user
-  - Description
-  - likes
+![alt](http://i.imgur.com/jta1dxj.png)
 
-#Comments ..
-  - belongs to post
-  - belongs to author(user)
-  - likes
+### And now you know where to go ;)
 
-#Location IN\_PROGRESS
-  - ???
-
-APIs
-
-google maps (static?) IN\_PROGRESS
-  -google map static helper
-
-sfo apis 
-  -will include api info for map to contain special markers.
-
-Niantic PKGO api
-  -will definitely include pokestop markers (duh)
-
-  GEM
-   ty geocoder for converting address to LONG/LAT
+![alt](http://i.imgur.com/qxcXFfA.jpg)

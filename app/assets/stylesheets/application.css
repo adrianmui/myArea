@@ -33,5 +33,27 @@ IMG.displayed {
 
 }
 
+#main-nav a:visited
+{
+  color: white;
+}
+
+#main-nav a:hover
+{
+  color: black;
+}
+
+
 a:link { color: #3b5998 }
 
+#big-body {
+  background-color: #dfe3ee  ;
+}
+
+footer {
+    bottom: 0px;
+    float: right;
+    margin: 0px 50px 0px 0px;
+    color: #000;
+    text-align: right;
+}

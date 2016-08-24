@@ -5,7 +5,8 @@
       <div class="navbar-header">
          <a class="navbar-left brand-img">
           <h5><img src="https://cdn1.iconfinder.com/data/icons/virtual-keyboard/512/geo-poi-pointer-round-atm-function-512.png", style="width: 20px">
-          My POI Finder Web App <small><small>by Adrianmonster</small></small> </a></h5>
+          My POI Finder Web App <small>by Adrianmonster
+          </small> </a></h5>
          </a>
          
       </div>
@@ -47,17 +48,22 @@
           </span>
         </li>
     
-        <li> 
+         
           <% if signed_in_user? %>
-            <%= link_to "logout", session_path(current_user), method: :delete %>
+            <li>
+              <%= link_to "logout", session_path(current_user), method: :delete %>
+            </li>
           <% else %>
-            <%= link_to "login", login_path %> 
+            <li>
+              <%= link_to "login", login_path %> 
+            </li>
+            <li>
+              <%= link_to "Sign Up", new_user_path %>
+           </li>
           <% end %>
-        </li>
+        
 
-        <li>
-          <%= link_to "Sign Up", new_user_path %>
-        </li>
+        
       </ul>
     </div>
 </nav>

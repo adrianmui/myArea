@@ -1,11 +1,15 @@
+<br>
 <ul>
 <% if !@places_near_me.empty? %>
   
+  <code> Search results... <%= @places_near_me.length %> POIs Near You </code>
+  
+  <br>
 
   
   <% @places_near_me.each do |places| %>
     <br>
-    
+
     <div id="image-holder">
       <img src=<%= (static_map_for(places["latitude"], places["longitude"], places["address"]) + add_key) %> alt="gmap">
     </div>

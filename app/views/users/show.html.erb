@@ -1,8 +1,19 @@
 <div class="jumbotron" id="big-body">
   <div class="container">
     <div class="row" id="profile-row">
-      <% if current_user.profile.nil? %>
 
+
+
+      <% if current_user.profile.nil? %>
+      <ul>
+        <h3>
+          Step 1: Create Profile
+          <br>
+          Step 2: Create Location
+          <br>
+          Step 3: Profit..
+        <h3>
+      </h1>
         <ul>
           <button> <%= link_to "Create Profile", new_profile_path %> </button>
         </ul>
@@ -18,17 +29,20 @@
       <% end %>
     </div>
 
-    <div class="row" id="location-row">
-
-      <button> <%= link_to "Find Your Location", new_location_path %> </button>
-    </div>
+    <%if current_user.profile %>
+      <div class="row" id="location-row">
+        <button> <%= link_to "Find Your Location", new_location_path %> </button>
+      </div>
+    <% end %>
 
   </div>
 </div>
 
-<div id="image-holder"> 
-  <img class="displayed" src=<%= @loc %> alt="gmap">
-</div>
+<% if current_user.profile && current_user.profile.location %>
+  <div id="image-holder"> 
+    <img class="displayed" src=<%= @loc %> alt="gmap">
+  </div>
+<% end %>
 
 
 

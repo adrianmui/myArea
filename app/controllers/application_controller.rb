@@ -42,6 +42,11 @@ class ApplicationController < ActionController::Base
     end
     helper_method :signed_in_user?
 
+    def add_key
+      "&key=AIzaSyD1_SmqYgQyPXcNPlTaEP-dt5kd59_YNU4"
+    end
+    helper_method :add_key
+
     # def signed_in_user_has_profile?
     #   !@current_user.profile.nil?
     # end

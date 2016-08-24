@@ -52,13 +52,9 @@ class UsersController < ApplicationController
     def add_markers_map(user)
       str = ""
       user.locations.each do |loc|
-        str += "&markers=color:green\%7Clabel:C\%7C#{loc.latitude},#{loc.longitude}"
+        str += "&markers=color:green\%7Clabel:O\%7C#{loc.latitude},#{loc.longitude}"
       end
       str
-    end
-
-    def add_key
-      "&key=AIzaSyD1_SmqYgQyPXcNPlTaEP-dt5kd59_YNU4"
     end
 
     def whitelisted_user_params

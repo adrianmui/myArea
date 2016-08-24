@@ -1,26 +1,61 @@
 <ul>
 <% if !@places_near_me.empty? %>
+  
+
+  
   <% @places_near_me.each do |places| %>
-    <h2>
-       <%= places["name"] %>
-    </h2>
-      <li>
-        <%= places["address"] %>
-      </li>
-    
-      <% if places["category_labels"] %>
-      <li>
-        <%= places["category_labels"].each do |category| %>
-          <%= " #{category} " %>
-        <% end %>
-      </li>
-      <% end %>
-    <li>
-      <%= places["latitude"] %>, <%= places["longitude"] %>
-    </li>
     <br>
-    <button> <%= link_to "Add To My Locations", locations_path(:user_id => current_user.id, :location => { :address => places["address"] } ), method: :create %> </button>
+      <img src=<%= (static_map_for(places["latitude"], places["longitude"], places["address"]) + add_key) %> alt="gmap">
+      <br>
+      <button> <%= link_to "Add To My Locations", locations_path(:user_id => current_user.id, :location => { :address => places["address"] } ), method: :create %> </button>
+
+    </br>
+
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>
+          name
+        </th>
+        <th>
+          address
+        </th>
+        <th>
+          category labels
+        </th>
+        <th>
+          latitude
+        </th>
+        <th>
+          longitude
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= places["name"] %>
+        </td>
+        <td>
+          <%= places["address"] %>
+        </td>
+        <td>
+            <% if places["category_labels"] %>
+            <li>
+              <%= places["category_labels"][0].join(", ") %>
+            </li>
+          <% end %>
+        </td>
+        <td>
+          <%= places["latitude"] %>
+        </td>
+        <td>
+          <%= places["longitude"] %>
+        </td>
+      </tr>
+    </table>
+    
+
+
   <% end %>
+  </tr>
 <% else %>
   YOU LIVE IN A DESERT JUST ROT AND IED ALREADY <h1>-RESTINPEACEHARAMBE- </h1>
 <% end %>

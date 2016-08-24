@@ -2,7 +2,7 @@ module ApplicationHelper
   def static_map_for(latitude, longitude, address, options = {})
     params = {
       :center => [latitude, longitude].join(","),
-      :zoom => 14,
+      :zoom => 15,
       :size => "1500x1500",
       :markers => [latitude, longitude].join(","),
       :sensor => true

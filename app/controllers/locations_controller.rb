@@ -1,3 +1,5 @@
+require 'factual'
+
 class LocationsController < ApplicationController
 
 

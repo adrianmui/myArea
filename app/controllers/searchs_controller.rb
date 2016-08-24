@@ -1,3 +1,5 @@
+require 'factual'
+
 class SearchsController < ApplicationController
   def index
   end

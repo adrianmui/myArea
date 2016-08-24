@@ -4,7 +4,7 @@ class SearchsController < ApplicationController
   def index
   end
   def new
-
+    
     @factual = Factual.new(Rails.application.secrets.OAUTH_KEY, Rails.application.secrets.OAUTH_SECRET)
      
     @user = current_user
@@ -17,7 +17,7 @@ class SearchsController < ApplicationController
           longitude = @user.profile.location.longitude
           latitude = @user.profile.location.latitude
           @places_near_me = @factual.table("places-us").search("#{name}").geo("$circle" => {"$center" => [latitude, longitude], "$meters" => dist }).rows
-          
+        
         end
       end
     end

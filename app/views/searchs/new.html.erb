@@ -29,6 +29,15 @@
           address
         </th>
         <th>
+          neighborhood
+        </th>
+        <th>
+          website
+        </th>
+        <th>
+          <%= Date.today.strftime("%A") %>
+        </th>
+        <th>
           category labels
         </th>
         <th>
@@ -44,6 +53,25 @@
         </td>
         <td>
           <%= places["address"] %>
+        </td>
+        <td>
+          <% if places["neighborhood"] %>
+            <%= places["neighborhood"][0..1].join(", ") %>
+          <% end %>
+        </td>
+        <td>
+          <%= places["website"] %>
+        </td>
+        <td>
+          <% if places["hours"] %>
+            <ul>
+              <% places["hours"]["#{Date.today.strftime("%A").downcase}"].each do |time| %>
+                <li>
+                  <%= time[0] %> to <%= time[1] %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
         </td>
         <td>
             <% if places["category_labels"] %>

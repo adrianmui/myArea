@@ -2,13 +2,14 @@
 <ul>
 <% if !@places_near_me.empty? %>
   
-  <code> Search results... <%= @places_near_me.length - 1 %> POIs Near You </code>
+  <code> Search results... <%= @places_near_me.length %> POIs Near You </code>
   
   <br>
 
+  
   <% @places_near_me[1..-1].each do |places| %>
     <br>
-    
+
     <div id="image-holder">
       <img src=<%= (static_map_for(places["latitude"], places["longitude"], places["address"]) + add_key) %> alt="gmap">
     </div>
@@ -28,6 +29,15 @@
           address
         </th>
         <th>
+          neighborhood
+        </th>
+        <th>
+          website
+        </th>
+        <th>
+          <%= Date.today.strftime("%A") %>
+        </th>
+        <th>
           category labels
         </th>
         <th>
@@ -43,6 +53,25 @@
         </td>
         <td>
           <%= places["address"] %>
+        </td>
+        <td>
+          <% if places["neighborhood"] %>
+            <%= places["neighborhood"][0..1].join(", ") %>
+          <% end %>
+        </td>
+        <td>
+          <%= places["website"] %>
+        </td>
+        <td>
+          <% if places["hours"] %>
+            <ul>
+              <% places["hours"]["#{Date.today.strftime("%A").downcase}"].each do |time| %>
+                <li>
+                  <%= time[0] %> to <%= time[1] %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
         </td>
         <td>
             <% if places["category_labels"] %>
